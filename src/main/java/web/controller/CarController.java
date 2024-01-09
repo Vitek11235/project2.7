@@ -16,23 +16,11 @@ import java.util.List;
 public class CarController {
 
     @RequestMapping(value = "/cars")//http://localhost:8080/cars?count=2
-    public String printCar(HttpServletRequest request,
-                           @RequestParam(value = "count", defaultValue = "5") String count,
+    public String printCar(@RequestParam(value = "count", defaultValue = "5") String count,
                            Model model) {
-        CarService carsService = new CarServiceImpl();
-        Car carOne = new Car("Lada", 12);
-        Car carTwo = new Car("Audi", 10);
-        Car carThree = new Car("Ford", 9);
-        Car carFour = new Car("Opel", 99);
-        Car carFive = new Car("Nissan", 3);
-        carsService.add(carOne);
-        carsService.add(carTwo);
-        carsService.add(carThree);
-        carsService.add(carFour);
-        carsService.add(carFive);
 
         int c = Integer.parseInt(count);
-        model.addAttribute("carsList", carsService.listCars(c));
+        model.addAttribute("carsList", CarServiceImpl.carsService.listCars(c));
         return "cars";
     }
 }
