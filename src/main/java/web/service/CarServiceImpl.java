@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarServiceImpl implements CarService{
-    private List<Car> cars = new ArrayList<>();
-    public static CarService carsService = new CarServiceImpl();
+    public static List<Car> cars = new ArrayList<>();
 
     static {
         Car carOne = new Car("Lada", 12);
@@ -15,11 +14,11 @@ public class CarServiceImpl implements CarService{
         Car carThree = new Car("Ford", 9);
         Car carFour = new Car("Opel", 99);
         Car carFive = new Car("Nissan", 3);
-        carsService.add(carOne);
-        carsService.add(carTwo);
-        carsService.add(carThree);
-        carsService.add(carFour);
-        carsService.add(carFive);
+        cars.add(carOne);
+        cars.add(carTwo);
+        cars.add(carThree);
+        cars.add(carFour);
+        cars.add(carFive);
     }
     @Override
     public void add(Car car) {
